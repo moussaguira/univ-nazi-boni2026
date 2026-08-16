@@ -93,27 +93,27 @@ Cloning downloads a copy of the course repository (code, notebooks, and the envi
    ls
 ```
 
-   You should see the course files, including `v_env_lage.yml`.
+   You should see the course files, including `v_env_boni.yml`.
 
 ---
 
 ## Step 4: Create the Python Virtual Environment
 
-The file `v_env_lage.yml` lists all the Python packages needed for the course. You will use it to build a self-contained environment named `lage`. Choose **one** of the two options below, depending on whether you installed Anaconda or Miniforge (with `mamba`).
+The file `v_env_boni.yml` lists all the Python packages needed for the course. You will use it to build a self-contained environment named `boni`. Choose **one** of the two options below, depending on whether you installed Anaconda or Miniforge (with `mamba`).
 
 ### Option A: Using `conda`
 
 1. From inside the `univ-nazi-boni2026` folder, run:
 
 ```bash
-   conda env create -f v_env_lage.yml
+   conda env create -f v_env_boni.yml
 ```
 
 2. This may take several minutes as packages are downloaded and installed. Wait for it to finish.
 3. Activate the environment:
 
 ```bash
-   conda activate lage
+   conda activate boni
 ```
 
 ### Option B: Using `mamba` (faster, available with Miniforge)
@@ -121,26 +121,26 @@ The file `v_env_lage.yml` lists all the Python packages needed for the course. Y
 1. From inside the `univ-nazi-boni2026` folder, run:
 
 ```bash
-   mamba env create -f v_env_lage.yml
+   mamba env create -f v_env_boni.yml
 ```
 
 2. This will typically be faster than the `conda` option above.
 3. Activate the environment:
 
 ```bash
-   mamba activate lage
+   mamba activate boni
 ```
 
 ---
 
 ## Step 5: Install Additional Python Libraries
 
-The base environment created in Step 4 does not include every package used during the workshop. Two additional libraries — **FloPy** and **GeoPandas** — need to be installed once the `lage` environment is active.
+The base environment created in Step 4 does not include every package used during the workshop. Two additional libraries — **FloPy** and **GeoPandas** — need to be installed once the `boni` environment is active.
 
-1. Make sure the `lage` environment is activated (you should see `(lage)` at the start of your terminal prompt). If it isn't, activate it first:
+1. Make sure the `boni` environment is activated (you should see `(boni)` at the start of your terminal prompt). If it isn't, activate it first:
 
 ```bash
-   conda activate lage
+   conda activate boni
 ```
 
 2. Install the additional libraries using **one** of the two options below, depending on whether you are using `conda` or `mamba`.
@@ -172,7 +172,7 @@ The base environment created in Step 4 does not include every package used durin
 
 ## Step 6: Confirm Everything Works
 
-1. With the environment activated (you should see `(lage)` at the start of your terminal prompt), launch Jupyter to confirm the setup:
+1. With the environment activated (you should see `(boni)` at the start of your terminal prompt), launch Jupyter to confirm the setup:
 
 ```bash
    jupyter notebook
@@ -186,7 +186,7 @@ The base environment created in Step 4 does not include every package used durin
 
 - **`conda: command not found`** — Close and reopen Git Bash after installing Anaconda/Miniforge, or restart your computer.
 - **Environment creation is slow or fails** — Try the `mamba` option (Option B), which resolves packages faster and more reliably than `conda`.
-- **Activation fails** — Double check you typed `conda activate lage` (or `mamba activate lage`) exactly, and that the environment finished creating without errors.
+- **Activation fails** — Double check you typed `conda activate boni` (or `mamba activate boni`) exactly, and that the environment finished creating without errors.
 - **`geopandas` or `flopy` install is slow or fails** — Try the `mamba` install option, which resolves dependencies faster and more reliably than `conda`. Make sure you included `-c conda-forge` in the command.
 - **Still stuck?** Reach out to the workshop organizers before the session begins so we can troubleshoot together.
 
@@ -289,27 +289,27 @@ Le clonage télécharge une copie du dépôt du cours (code, notebooks et fichie
    ls
 ```
 
-   Vous devriez voir les fichiers du cours, y compris `v_env_lage.yml`.
+   Vous devriez voir les fichiers du cours, y compris `v_env_boni.yml`.
 
 ---
 
 ### Étape 4 : Créer l'environnement virtuel Python
 
-Le fichier `v_env_lage.yml` répertorie tous les paquets Python nécessaires pour le cours. Vous allez l'utiliser pour créer un environnement autonome nommé `lage`. Choisissez **l'une** des deux options ci-dessous, selon que vous avez installé Anaconda ou Miniforge (avec `mamba`).
+Le fichier `v_env_boni.yml` répertorie tous les paquets Python nécessaires pour le cours. Vous allez l'utiliser pour créer un environnement autonome nommé `boni`. Choisissez **l'une** des deux options ci-dessous, selon que vous avez installé Anaconda ou Miniforge (avec `mamba`).
 
 #### Option A : Avec `conda`
 
 1. Depuis l'intérieur du dossier `univ-nazi-boni2026`, exécutez :
 
 ```bash
-   conda env create -f v_env_lage.yml
+   conda env create -f v_env_boni.yml
 ```
 
 2. Cela peut prendre plusieurs minutes le temps que les paquets soient téléchargés et installés. Attendez que le processus se termine.
 3. Activez l'environnement :
 
 ```bash
-   conda activate lage
+   conda activate boni
 ```
 
 #### Option B : Avec `mamba` (plus rapide, disponible avec Miniforge)
@@ -317,26 +317,26 @@ Le fichier `v_env_lage.yml` répertorie tous les paquets Python nécessaires pou
 1. Depuis l'intérieur du dossier `univ-nazi-boni2026`, exécutez :
 
 ```bash
-   mamba env create -f v_env_lage.yml
+   mamba env create -f v_env_boni.yml
 ```
 
 2. Cette méthode est généralement plus rapide que l'option `conda` ci-dessus.
 3. Activez l'environnement :
 
 ```bash
-   mamba activate lage
+   mamba activate boni
 ```
 
 ---
 
 ### Étape 5 : Installer des bibliothèques Python supplémentaires
 
-L'environnement de base créé à l'étape 4 n'inclut pas tous les paquets utilisés pendant l'atelier. Deux bibliothèques supplémentaires — **FloPy** et **GeoPandas** — doivent être installées une fois l'environnement `lage` activé.
+L'environnement de base créé à l'étape 4 n'inclut pas tous les paquets utilisés pendant l'atelier. Deux bibliothèques supplémentaires — **FloPy** et **GeoPandas** — doivent être installées une fois l'environnement `boni` activé.
 
-1. Assurez-vous que l'environnement `lage` est activé (vous devriez voir `(lage)` au début de l'invite de votre terminal). Si ce n'est pas le cas, activez-le d'abord :
+1. Assurez-vous que l'environnement `boni` est activé (vous devriez voir `(boni)` au début de l'invite de votre terminal). Si ce n'est pas le cas, activez-le d'abord :
 
 ```bash
-   conda activate lage
+   conda activate boni
 ```
 
 2. Installez les bibliothèques supplémentaires en utilisant **l'une** des deux options ci-dessous, selon que vous utilisez `conda` ou `mamba`.
@@ -368,7 +368,7 @@ L'environnement de base créé à l'étape 4 n'inclut pas tous les paquets utili
 
 ### Étape 6 : Vérifier que tout fonctionne
 
-1. Une fois l'environnement activé (vous devriez voir `(lage)` au début de l'invite de votre terminal), lancez Jupyter pour vérifier l'installation :
+1. Une fois l'environnement activé (vous devriez voir `(boni)` au début de l'invite de votre terminal), lancez Jupyter pour vérifier l'installation :
 
 ```bash
    jupyter notebook
@@ -382,7 +382,7 @@ L'environnement de base créé à l'étape 4 n'inclut pas tous les paquets utili
 
 - **`conda: command not found`** — Fermez et rouvrez Git Bash après avoir installé Anaconda/Miniforge, ou redémarrez votre ordinateur.
 - **La création de l'environnement est lente ou échoue** — Essayez l'option `mamba` (Option B), qui résout les paquets plus rapidement et plus efficacement que `conda`.
-- **L'activation échoue** — Vérifiez que vous avez bien tapé `conda activate lage` (ou `mamba activate lage`) exactement, et que l'environnement s'est créé sans erreur.
+- **L'activation échoue** — Vérifiez que vous avez bien tapé `conda activate boni` (ou `mamba activate boni`) exactement, et que l'environnement s'est créé sans erreur.
 - **L'installation de `geopandas` ou `flopy` est lente ou échoue** — Essayez l'option `mamba`, qui résout les dépendances plus rapidement et plus efficacement que `conda`. Vérifiez que vous avez bien inclus `-c conda-forge` dans la commande.
 - **Toujours bloqué ?** Contactez les organisateurs de l'atelier avant le début de la séance afin que nous puissions résoudre le problème ensemble.
 

@@ -1,0 +1,2299 @@
+                                   MODFLOW 6
+                U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
+                          GROUNDWATER FLOW MODEL (GWF)
+                   VERSION 6.3.0 release candidate 02/06/2022
+                               ***DEVELOP MODE***
+
+   MODFLOW 6 compiled Feb 06 2022 02:35:51 with Intel(R) Fortran Intel(R) 64
+   Compiler Classic for applications running on Intel(R) 64, Version 2021.5.0
+                             Build 20211109_000000
+
+This software is preliminary or provisional and is subject to 
+revision. It is being provided to meet the need for timely best 
+science. The software has not received final approval by the U.S. 
+Geological Survey (USGS). No warranty, expressed or implied, is made 
+by the USGS or the U.S. Government as to the functionality of the 
+software and related material nor shall the fact of release 
+constitute any such warranty. The software is provided on the 
+condition that neither the USGS nor the U.S. Government shall be held 
+liable for any damages resulting from the authorized or unauthorized 
+use of the software.
+
+
+As a work of the United States Government, this USGS product is 
+in the public domain within the United States. You can copy, 
+modify, distribute, and perform the work, even for commercial 
+purposes, all without asking permission. Additionally, USGS 
+waives copyright and related rights in the work worldwide 
+through CC0 1.0 Universal Public Domain Dedication 
+(https://creativecommons.org/publicdomain/zero/1.0/).
+
+The following GNU Lesser General Public License (LGPL) libraries
+are used in this USGS product:
+
+    SPARSKIT version 2.0
+      ilut, luson, and qsplit 
+      (https://www-users.cse.umn.edu/~saad/software/SPARSKIT/)
+
+    RCM - Reverse Cuthill McKee Ordering
+      (https://people.math.sc.edu/Burkardt/f_src/rcm/rcm.html)
+
+    BLAS - Basic Linear Algebra Subprograms Level 1
+      (https://people.math.sc.edu/Burkardt/f_src/blas1_d/blas1_d.html)
+
+    SPARSEKIT - Sparse Matrix Utility Package
+      amux, dperm, dvperm, rperm, and cperm
+      (https://people.sc.fsu.edu/~jburkardt/f77_src/sparsekit/sparsekit.html)
+
+The following BSD-3 License libraries are used in this USGS product:
+
+    Modern Fortran DAG Library
+      Copyright (c) 2018, Jacob Williams
+      All rights reserved.
+      (https://github.com/jacobwilliams/daglib)
+
+MODFLOW 6 compiler options: /O2 /heap-arrays:0 /fpe:0 /traceback /nologo /fpp
+/c /module:.\mod_temp\ /object:.\obj_temp\
+
+System command used to initiate simulation:
+..\..\bin\mf6.exe
+
+MODFLOW was compiled using uniform precision.
+
+Real Variables
+  KIND: 8
+  TINY (smallest non-zero value):    2.225074-308
+  HUGE (largest value):    1.797693+308
+  PRECISION: 15
+  BIT SIZE: 64
+
+Integer Variables
+  KIND: 4
+  HUGE (largest value): 2147483647
+  BIT SIZE: 32
+
+Long Integer Variables
+  KIND: 8
+  HUGE (largest value): 9223372036854775807
+  BIT SIZE: 64
+
+Logical Variables
+  KIND: 4
+  BIT SIZE: 32
+ 
+
+ OPENED tr_baseline.dis
+ FILE TYPE:DIS6                   UNIT 1005   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.ic
+ FILE TYPE:IC6                    UNIT 1006   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.npf
+ FILE TYPE:NPF6                   UNIT 1007   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.sto
+ FILE TYPE:STO6                   UNIT 1008   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.chd
+ FILE TYPE:CHD6                   UNIT 1009   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.rcha
+ FILE TYPE:RCH6                   UNIT 1010   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.evta
+ FILE TYPE:EVT6                   UNIT 1011   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.riv
+ FILE TYPE:RIV6                   UNIT 1012   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.wel
+ FILE TYPE:WEL6                   UNIT 1013   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED tr_baseline.oc
+ FILE TYPE:OC6                    UNIT 1014   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+ NAMEFILE OPTIONS:
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+    NEWTON-RAPHSON method enabled for the model.
+    NEWTON-RAPHSON UNDER-RELAXATION based on the bottom elevation of the model will be applied to the model.
+
+ DIS -- STRUCTURED GRID DISCRETIZATION PACKAGE, VERSION 2 : 3/27/2014 - INPUT READ FROM UNIT 1005
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:52.
+ PROCESSING DISCRETIZATION OPTIONS
+ END OF DISCRETIZATION OPTIONS
+ MODEL LENGTH UNIT IS UNDEFINED
+ PROCESSING DISCRETIZATION DIMENSIONS
+    NLAY =       3
+    NROW =     150
+    NCOL =     100
+ END OF DISCRETIZATION DIMENSIONS
+ PROCESSING GRIDDATA
+
+                     DELR =   100.0000    
+
+                     DELC =   100.0000    
+ END PROCESSING GRIDDATA
+
+ NPF -- NODE PROPERTY FLOW PACKAGE, VERSION 1, 3/30/2015 INPUT READ FROM UNIT 1007
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:53.
+ PROCESSING NPF OPTIONS
+    SPECIFIC DISCHARGE WILL BE CALCULATED AT CELL CENTERS AND WRITTEN TO DATA-SPDIS IN BUDGET FILE WHEN REQUESTED.
+ END OF NPF OPTIONS
+
+ WEL   -- WEL PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1013
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:54.
+
+ PROCESSING WEL OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+    AUTOMATIC FLOW REDUCTION OF WELLS IMPLEMENTED.
+    AUTOMATIC FLOW REDUCTION FRACTION (  0.1000000    ).
+ END OF WEL OPTIONS
+
+ PROCESSING WEL DIMENSIONS
+    MAXBOUND =      10
+ END OF WEL DIMENSIONS
+
+ RIV   -- RIV PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1012
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:54.
+
+ PROCESSING RIV OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF RIV OPTIONS
+
+ PROCESSING RIV DIMENSIONS
+    MAXBOUND =     150
+ END OF RIV DIMENSIONS
+
+ RCH   -- RCH PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1010
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:53.
+
+ PROCESSING RCH OPTIONS
+    RECHARGE INPUT WILL BE READ AS ARRAY(S).
+ END OF RCHA OPTIONS
+
+ EVT   -- EVT PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1011
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:54.
+
+ PROCESSING EVT OPTIONS
+    EVAPOTRANSPIRATION INPUT WILL BE READ AS ARRAYS.
+ END OF EVTA OPTIONS
+
+ CHD   -- CHD PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1009
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:53.
+
+ PROCESSING CHD OPTIONS
+ END OF CHD OPTIONS
+
+ PROCESSING CHD DIMENSIONS
+    MAXBOUND =     600
+ END OF CHD DIMENSIONS
+
+ IC -- INITIAL CONDITIONS PACKAGE, VERSION 8, 3/28/2015 INPUT READ FROM UNIT 1006
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:53.
+ PROCESSING GRIDDATA
+ END PROCESSING GRIDDATA
+ PROCESSING GRIDDATA
+ K22 not provided.  Assuming K22 = K.
+ END PROCESSING GRIDDATA
+
+ STO -- STORAGE PACKAGE, VERSION 1, 5/19/2014 INPUT READ FROM UNIT 1008
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:53.
+ PROCESSING STORAGE OPTIONS
+ END OF STORAGE OPTIONS
+ PROCESSING GRIDDATA
+
+         SPECIFIC STORAGE =  0.1000000E-04 FOR LAYER 1
+
+         SPECIFIC STORAGE =  0.5000000E-04 FOR LAYER 2
+
+         SPECIFIC STORAGE =  0.3000000E-04 FOR LAYER 3
+
+           SPECIFIC YIELD =  0.1500000     FOR LAYER 1
+
+           SPECIFIC YIELD =  0.8000000E-01 FOR LAYER 2
+
+           SPECIFIC YIELD =  0.5000000E-01 FOR LAYER 3
+ END PROCESSING GRIDDATA
+    BINARY GRID INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1016
+      FILE NAME: C:\Users\mouss\modeling\training\univ_bobo_2026\model\transient_baseline\tr_baseline.dis.grb
+
+ OPENED C:\Users\mouss\modeling\training\univ_bobo_2026\model\transient_baseline\tr_baseline.dis.grb
+ FILE TYPE:DATA(BINARY)   UNIT 1016   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+      THE LAST TIME STEP WILL BE PRINTED
+      THE LAST TIME STEP WILL BE PRINTED
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:34:54.
+
+ PROCESSING OC OPTIONS
+
+    BUDGET INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1017
+      FILE NAME: tr_baseline.cbc
+
+ OPENED tr_baseline.cbc
+ FILE TYPE:DATA(BINARY)   UNIT 1017   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+    HEAD INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1018
+      FILE NAME: tr_baseline.hds
+
+ OPENED tr_baseline.hds
+ FILE TYPE:DATA(BINARY)   UNIT 1018   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+ END OF OC OPTIONS
+
+start timestep kper="1" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 1
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 1
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 1 IS TRANSIENT
+
+
+  EVAPOTRANSPIRATION RATE =  0.2661290E-02
+
+         EXTINCTION DEPTH =   4.000000    
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    1
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   1
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       30238.1976                STO-SS =         631.0833     STORAGE                          
+              STO-SY =      933576.5972                STO-SY =       29588.6056     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =        7389.3352                   RIV =         252.4809     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =      274656.7841                   CHD =        9048.7933     CHD_0                            
+
+            TOTAL IN =     1245860.9140              TOTAL IN =       39520.9631
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        1689.8538                STO-SS =          19.2695     STORAGE                          
+              STO-SY =       44825.5234                STO-SY =        1268.6840     STORAGE                          
+                 WEL =      456073.5027                   WEL =       14858.1984     WEL_0                            
+                 RIV =      341707.1502                   RIV =       10863.9534     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =      389807.9172                  EVTA =       12158.2227     EVTA_0                           
+                 CHD =       11756.9721                   CHD =         352.6349     CHD_0                            
+
+           TOTAL OUT =     1245860.9194             TOTAL OUT =       39520.9629
+
+            IN - OUT =      -5.3480E-03              IN - OUT =       2.1090E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =           0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+
+
+end timestep
+
+
+start timestep kper="2" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 2
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 2
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 2 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.3142860E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    2
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   2
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       45750.5926                STO-SS =         561.2362     STORAGE                          
+              STO-SY =     1774458.3161                STO-SY =       29212.9269     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       14967.9319                   RIV =         282.4645     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =      536682.2299                   CHD =        9520.8636     CHD_0                            
+
+            TOTAL IN =     2371859.0705              TOTAL IN =       39577.4912
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        2773.1085                STO-SS =          15.2254     STORAGE                          
+              STO-SY =       75751.5204                STO-SY =        1006.5970     STORAGE                          
+                 WEL =      860081.3856                   WEL =       14486.0519     WEL_0                            
+                 RIV =      641493.0132                   RIV =       10610.5069     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =      771291.7992                  EVTA =       13169.7115     EVTA_0                           
+                 CHD =       20468.2542                   CHD =         289.3985     CHD_0                            
+
+           TOTAL OUT =     2371859.0811             TOTAL OUT =       39577.4912
+
+            IN - OUT =      -1.0569E-02              IN - OUT =      -4.2868E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    2
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.04163E+05  11736.      195.60      8.1500     2.23136E-02
+ STRESS PERIOD TIME 2.41920E+06  40320.      672.00      28.000     7.66598E-02
+         TOTAL TIME 5.09760E+06  84960.      1416.0      59.000     0.16153    
+
+
+end timestep
+
+
+start timestep kper="3" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 3
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 3
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 3 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.3637100E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    3
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   3
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       70603.7063                STO-SS =         639.8147     STORAGE                          
+              STO-SY =     2739048.4821                STO-SY =       30377.1953     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       24379.5418                   RIV =         318.6151     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =      842130.3814                   CHD =       10025.2766     CHD_0                            
+
+            TOTAL IN =     3676162.1116              TOTAL IN =       41360.9017
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        3182.7144                STO-SS =          12.1206     STORAGE                          
+              STO-SY =      102924.2381                STO-SY =         803.5469     STORAGE                          
+                 WEL =     1360684.1963                   WEL =       16180.1875     WEL_0                            
+                 RIV =      966154.6988                   RIV =       10387.2775     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     1215041.7549                  EVTA =       13749.7931     EVTA_0                           
+                 CHD =       28174.5223                   CHD =         227.9761     CHD_0                            
+
+           TOTAL OUT =     3676162.1248             TOTAL OUT =       41360.9017
+
+            IN - OUT =      -1.3161E-02              IN - OUT =      -1.1932E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    3
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 7.77600E+06 1.29600E+05  2160.0      90.000     0.24641    
+
+
+end timestep
+
+
+start timestep kper="4" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 4
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 4
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 4 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.3850000E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      4
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    4
+
+end timestep
+
+
+start timestep kper="4" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      4
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    4
+
+end timestep
+
+
+start timestep kper="4" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      4
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    4
+
+end timestep
+
+
+start timestep kper="4" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      4
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    4
+
+end timestep
+
+
+start timestep kper="4" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      4
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    4
+
+end timestep
+
+
+start timestep kper="4" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      4
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    4
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   4
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       84369.5199                STO-SS =         465.7441     STORAGE                          
+              STO-SY =     3466636.5584                STO-SY =       23613.9598     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       34343.1531                   RIV =         343.2055     RIV_0                            
+                RCHA =      171873.8796                  RCHA =        5729.1293     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     1148366.3848                   CHD =       10308.0256     CHD_0                            
+
+            TOTAL IN =     4905589.4959              TOTAL IN =       40460.0643
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        4345.1145                STO-SS =          11.3599     STORAGE                          
+              STO-SY =      126756.3635                STO-SY =         739.6419     STORAGE                          
+                 WEL =     1831257.1360                   WEL =       15709.2752     WEL_0                            
+                 RIV =     1277219.3934                   RIV =       10329.3892     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     1631611.4009                  EVTA =       13473.9116     EVTA_0                           
+                 CHD =       34400.1040                   CHD =         196.4866     CHD_0                            
+
+           TOTAL OUT =     4905589.5124             TOTAL OUT =       40460.0643
+
+            IN - OUT =      -1.6516E-02              IN - OUT =      -9.1216E-06
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    4
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.54460E+05  12574.      209.57      8.7322     2.39074E-02
+ STRESS PERIOD TIME 2.59200E+06  43200.      720.00      30.000     8.21355E-02
+         TOTAL TIME 1.03680E+07 1.72800E+05  2880.0      120.00     0.32854    
+
+
+end timestep
+
+
+start timestep kper="5" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 5
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 5
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 5 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.3459680E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      5
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    5
+
+end timestep
+
+
+start timestep kper="5" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      5
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    5
+
+end timestep
+
+
+start timestep kper="5" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      5
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    5
+
+end timestep
+
+
+start timestep kper="5" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      5
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    5
+
+end timestep
+
+
+start timestep kper="5" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      5
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    5
+
+end timestep
+
+
+start timestep kper="5" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      5
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    5
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   5
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       85781.4997                STO-SS =          37.8091     STORAGE                          
+              STO-SY =     3560628.0572                STO-SY =        2597.1491     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       44546.8271                   RIV =         327.2759     RIV_0                            
+                RCHA =      973951.9846                  RCHA =       25873.4873     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     1462371.5457                   CHD =       10053.0144     CHD_0                            
+
+            TOTAL IN =     6127279.9142              TOTAL IN =       38888.7358
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =       16156.3918                STO-SS =          90.6338     STORAGE                          
+              STO-SY =      219483.4252                STO-SY =        2633.6611     STORAGE                          
+                 WEL =     2236526.5087                   WEL =       13099.7427     WEL_0                            
+                 RIV =     1605746.6029                   RIV =       10669.2821     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     2008413.9366                  EVTA =       12177.5317     EVTA_0                           
+                 CHD =       40953.0606                   CHD =         217.8843     CHD_0                            
+
+           TOTAL OUT =     6127279.9258             TOTAL OUT =       38888.7358
+
+            IN - OUT =      -1.1615E-02              IN - OUT =       2.4985E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =           0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    5
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 1.30464E+07 2.17440E+05  3624.0      151.00     0.41342    
+
+
+end timestep
+
+
+start timestep kper="6" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 6
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 6
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 6 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2750000E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      6
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    6
+
+end timestep
+
+
+start timestep kper="6" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      6
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    6
+
+end timestep
+
+
+start timestep kper="6" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      6
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    6
+
+end timestep
+
+
+start timestep kper="6" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      6
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    6
+
+end timestep
+
+
+start timestep kper="6" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      6
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    6
+
+end timestep
+
+
+start timestep kper="6" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      6
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    6
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   6
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       85782.2498                STO-SS =           0.0000     STORAGE                          
+              STO-SY =     3561522.5736                STO-SY =           0.0000     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       53451.4321                   RIV =         282.7241     RIV_0                            
+                RCHA =     2348943.0217                  RCHA =       45833.0346     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     1751064.6448                   CHD =        9414.4058     CHD_0                            
+
+            TOTAL IN =     7800763.9221              TOTAL IN =       55530.1644
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =       46439.9871                STO-SS =         533.4901     STORAGE                          
+              STO-SY =      951965.9018                STO-SY =       24106.1632     STORAGE                          
+                 WEL =     2501554.3050                   WEL =        8872.5863     WEL_0                            
+                 RIV =     1937540.7919                   RIV =       11207.9567     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     2314342.5512                  EVTA =       10519.1817     EVTA_0                           
+                 CHD =       48920.4072                   CHD =         290.7873     CHD_0                            
+
+           TOTAL OUT =     7800763.9442             TOTAL OUT =       55530.1653
+
+            IN - OUT =      -2.2191E-02              IN - OUT =      -8.5106E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    6
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.54460E+05  12574.      209.57      8.7322     2.39074E-02
+ STRESS PERIOD TIME 2.59200E+06  43200.      720.00      30.000     8.21355E-02
+         TOTAL TIME 1.56384E+07 2.60640E+05  4344.0      181.00     0.49555    
+
+
+end timestep
+
+
+start timestep kper="7" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 7
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 7
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 7 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2306450E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      7
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    7
+
+end timestep
+
+
+start timestep kper="7" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      7
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    7
+
+end timestep
+
+
+start timestep kper="7" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      7
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    7
+
+end timestep
+
+
+start timestep kper="7" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      7
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    7
+
+end timestep
+
+
+start timestep kper="7" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      7
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    7
+
+end timestep
+
+
+start timestep kper="7" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      7
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    7
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   7
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       85782.2498                STO-SS =           0.0000     STORAGE                          
+              STO-SY =     3561522.5736                STO-SY =           0.0000     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       60664.2654                   RIV =         210.3091     RIV_0                            
+                RCHA =     4640594.7503                  RCHA =       73924.2493     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     2025117.2485                   CHD =        8545.8888     CHD_0                            
+
+            TOTAL IN =    10373681.0874              TOTAL IN =       82680.4472
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =       82280.3558                STO-SS =         958.7403     STORAGE                          
+              STO-SY =     2582812.2649                STO-SY =       51555.9861     STORAGE                          
+                 WEL =     2727119.9842                   WEL =        7309.6546     WEL_0                            
+                 RIV =     2304973.6247                   RIV =       12121.4826     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     2616151.5270                  EVTA =       10323.1277     EVTA_0                           
+                 CHD =       60343.3598                   CHD =         411.4563     CHD_0                            
+
+           TOTAL OUT =    10373681.1163             TOTAL OUT =       82680.4477
+
+            IN - OUT =      -2.8911E-02              IN - OUT =      -4.7298E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    7
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 1.83168E+07 3.05280E+05  5088.0      212.00     0.58042    
+
+
+end timestep
+
+
+start timestep kper="8" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 8
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 8
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 8 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2129030E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      8
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    8
+
+end timestep
+
+
+start timestep kper="8" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      8
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    8
+
+end timestep
+
+
+start timestep kper="8" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      8
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    8
+
+end timestep
+
+
+start timestep kper="8" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      8
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    8
+
+end timestep
+
+
+start timestep kper="8" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      8
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    8
+
+end timestep
+
+
+start timestep kper="8" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      8
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    8
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   8
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       85782.2498                STO-SS =           0.0000     STORAGE                          
+              STO-SY =     3561522.5736                STO-SY =           0.0000     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       66090.8311                   RIV =         155.2465     RIV_0                            
+                RCHA =     7505159.3981                  RCHA =       92405.3112     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     2274341.2375                   CHD =        7765.7459     CHD_0                            
+
+            TOTAL IN =    13492896.2901              TOTAL IN =      100326.3036
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =      120377.9508                STO-SS =        1200.1069     STORAGE                          
+              STO-SY =     4695672.9539                STO-SY =       66794.7621     STORAGE                          
+                 WEL =     2954712.2059                   WEL =        7360.7673     WEL_0                            
+                 RIV =     2700479.1996                   RIV =       13062.7815     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     2945972.7433                  EVTA =       11364.6481     EVTA_0                           
+                 CHD =       75681.2689                   CHD =         543.2380     CHD_0                            
+
+           TOTAL OUT =    13492896.3224             TOTAL OUT =      100326.3039
+
+            IN - OUT =      -3.2296E-02              IN - OUT =      -2.2250E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    8
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 2.09952E+07 3.49920E+05  5832.0      243.00     0.66530    
+
+
+end timestep
+
+
+start timestep kper="9" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 9
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 9
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 9 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2566670E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      9
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    9
+
+end timestep
+
+
+start timestep kper="9" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      9
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    9
+
+end timestep
+
+
+start timestep kper="9" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      9
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    9
+
+end timestep
+
+
+start timestep kper="9" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      9
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    9
+
+end timestep
+
+
+start timestep kper="9" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      9
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    9
+
+end timestep
+
+
+start timestep kper="9" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      9
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    9
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   9
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       88145.3905                STO-SS =       5.0948E-02     STORAGE                          
+              STO-SY =     3565508.4548                STO-SY =          12.8796     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       70477.2777                   RIV =         136.8050     RIV_0                            
+                RCHA =     9453063.3674                  RCHA =       64930.1323     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     2509529.3714                   CHD =        7852.3826     CHD_0                            
+
+            TOTAL IN =    15686723.8618              TOTAL IN =       72932.2505
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =      139732.7987                STO-SS =         637.6783     STORAGE                          
+              STO-SY =     5785114.4167                STO-SY =       35726.0693     STORAGE                          
+                 WEL =     3208872.3314                   WEL =        8471.2151     WEL_0                            
+                 RIV =     3088972.0016                   RIV =       13010.9213     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     3372457.0283                  EVTA =       14558.8869     EVTA_0                           
+                 CHD =       91575.3204                   CHD =         527.4800     CHD_0                            
+
+           TOTAL OUT =    15686723.8971             TOTAL OUT =       72932.2508
+
+            IN - OUT =      -3.5303E-02              IN - OUT =      -3.4626E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    9
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.54460E+05  12574.      209.57      8.7322     2.39074E-02
+ STRESS PERIOD TIME 2.59200E+06  43200.      720.00      30.000     8.21355E-02
+         TOTAL TIME 2.35872E+07 3.93120E+05  6552.0      273.00     0.74743    
+
+
+end timestep
+
+
+start timestep kper="10" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 10
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 10
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 10 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2927420E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     10
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD   10
+
+end timestep
+
+
+start timestep kper="10" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     10
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD   10
+
+end timestep
+
+
+start timestep kper="10" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     10
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD   10
+
+end timestep
+
+
+start timestep kper="10" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     10
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD   10
+
+end timestep
+
+
+start timestep kper="10" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     10
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD   10
+
+end timestep
+
+
+start timestep kper="10" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     10
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD   10
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD  10
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =      104984.2634                STO-SS =         321.4992     STORAGE                          
+              STO-SY =     4100834.1055                STO-SY =       16110.3141     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       75280.3487                   RIV =         160.5585     RIV_0                            
+                RCHA =     9911393.7131                  RCHA =       14784.8499     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     2768676.5656                   CHD =        8606.8009     CHD_0                            
+
+            TOTAL IN =    16961168.9963              TOTAL IN =       39984.0226
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =      140232.8660                STO-SS =          10.2851     STORAGE                          
+              STO-SY =     5827523.5015                STO-SY =         980.8842     STORAGE                          
+                 WEL =     3555269.3320                   WEL =       11156.0290     WEL_0                            
+                 RIV =     3469132.7180                   RIV =       12048.3735     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     3863680.7221                  EVTA =       15383.4038     EVTA_0                           
+                 CHD =      105329.8930                   CHD =         405.0471     CHD_0                            
+
+           TOTAL OUT =    16961169.0327             TOTAL OUT =       39984.0227
+
+            IN - OUT =      -3.6467E-02              IN - OUT =      -8.5245E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD   10
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 2.62656E+07 4.37760E+05  7296.0      304.00     0.83231    
+
+
+end timestep
+
+
+start timestep kper="11" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 11
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 11
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 11 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2750000E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     11
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD   11
+
+end timestep
+
+
+start timestep kper="11" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     11
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD   11
+
+end timestep
+
+
+start timestep kper="11" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     11
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD   11
+
+end timestep
+
+
+start timestep kper="11" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     11
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD   11
+
+end timestep
+
+
+start timestep kper="11" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     11
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD   11
+
+end timestep
+
+
+start timestep kper="11" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     11
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD   11
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD  11
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =      130394.6112                STO-SS =         598.6703     STORAGE                          
+              STO-SY =     4990618.7814                STO-SY =       29001.3945     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       80759.3192                   RIV =         194.9986     RIV_0                            
+                RCHA =     9911393.7131                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     3035476.3231                   CHD =        9051.3133     CHD_0                            
+
+            TOTAL IN =    18148642.7480              TOTAL IN =       38846.3766
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =      140258.5874                STO-SS =           0.6280     STORAGE                          
+              STO-SY =     5830166.6356                STO-SY =          57.4613     STORAGE                          
+                 WEL =     3970371.7019                   WEL =       13823.5087     WEL_0                            
+                 RIV =     3817404.4802                   RIV =       11415.4120     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     4274161.9860                  EVTA =       13205.8090     EVTA_0                           
+                 CHD =      116279.3900                   CHD =         343.5576     CHD_0                            
+
+           TOTAL OUT =    18148642.7811             TOTAL OUT =       38846.3766
+
+            IN - OUT =      -3.3094E-02              IN - OUT =      -1.3421E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD   11
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.54460E+05  12574.      209.57      8.7322     2.39074E-02
+ STRESS PERIOD TIME 2.59200E+06  43200.      720.00      30.000     8.21355E-02
+         TOTAL TIME 2.88576E+07 4.80960E+05  8016.0      334.00     0.91444    
+
+
+end timestep
+
+
+start timestep kper="12" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 12
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 12
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 12 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.2483870E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD     12
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD   12
+
+end timestep
+
+
+start timestep kper="12" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD     12
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD   12
+
+end timestep
+
+
+start timestep kper="12" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD     12
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD   12
+
+end timestep
+
+
+start timestep kper="12" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD     12
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD   12
+
+end timestep
+
+
+start timestep kper="12" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD     12
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD   12
+
+end timestep
+
+
+start timestep kper="12" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL TR_BASELINE      PACKAGE NPF             CONNECTED TO MODEL TR_BASELINE      PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV06 SAVING              WEL IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV06 SAVING              RIV IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV06 SAVING             RCHA IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV06 SAVING            EVTA  IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+ UBDSV06 SAVING              CHD IN MODEL TR_BASELINE      PACKAGE TR_BASELINE     CONNECTED TO MODEL TR_BASELINE      PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD     12
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD   12
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD  12
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =      151308.5579                STO-SS =         562.3488     STORAGE                          
+              STO-SY =     5854251.3828                STO-SY =       27427.5720     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       87410.9174                   RIV =         227.5470     RIV_0                            
+                RCHA =     9911393.7131                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =     3318970.1312                   CHD =        9208.9566     CHD_0                            
+
+            TOTAL IN =    19323334.7024              TOTAL IN =       37426.4244
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =      140271.4194                STO-SS =           0.3431     STORAGE                          
+              STO-SY =     5831442.1206                STO-SY =          32.5043     STORAGE                          
+                 WEL =     4432054.0682                   WEL =       14889.0312     WEL_0                            
+                 RIV =     4164355.5839                   RIV =       11056.9997     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     4628598.2256                  EVTA =       11121.2715     EVTA_0                           
+                 CHD =      126613.3092                   CHD =         326.2747     CHD_0                            
+
+           TOTAL OUT =    19323334.7268             TOTAL OUT =       37426.4244
+
+            IN - OUT =      -2.4473E-02              IN - OUT =       6.9288E-06
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =           0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD   12
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 3.15360E+07 5.25600E+05  8760.0      365.00     0.99932    
+
+
+end timestep
+

@@ -1,0 +1,789 @@
+                                   MODFLOW 6
+                U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
+                          GROUNDWATER FLOW MODEL (GWF)
+                   VERSION 6.3.0 release candidate 02/06/2022
+                               ***DEVELOP MODE***
+
+   MODFLOW 6 compiled Feb 06 2022 02:35:51 with Intel(R) Fortran Intel(R) 64
+   Compiler Classic for applications running on Intel(R) 64, Version 2021.5.0
+                             Build 20211109_000000
+
+This software is preliminary or provisional and is subject to 
+revision. It is being provided to meet the need for timely best 
+science. The software has not received final approval by the U.S. 
+Geological Survey (USGS). No warranty, expressed or implied, is made 
+by the USGS or the U.S. Government as to the functionality of the 
+software and related material nor shall the fact of release 
+constitute any such warranty. The software is provided on the 
+condition that neither the USGS nor the U.S. Government shall be held 
+liable for any damages resulting from the authorized or unauthorized 
+use of the software.
+
+
+As a work of the United States Government, this USGS product is 
+in the public domain within the United States. You can copy, 
+modify, distribute, and perform the work, even for commercial 
+purposes, all without asking permission. Additionally, USGS 
+waives copyright and related rights in the work worldwide 
+through CC0 1.0 Universal Public Domain Dedication 
+(https://creativecommons.org/publicdomain/zero/1.0/).
+
+The following GNU Lesser General Public License (LGPL) libraries
+are used in this USGS product:
+
+    SPARSKIT version 2.0
+      ilut, luson, and qsplit 
+      (https://www-users.cse.umn.edu/~saad/software/SPARSKIT/)
+
+    RCM - Reverse Cuthill McKee Ordering
+      (https://people.math.sc.edu/Burkardt/f_src/rcm/rcm.html)
+
+    BLAS - Basic Linear Algebra Subprograms Level 1
+      (https://people.math.sc.edu/Burkardt/f_src/blas1_d/blas1_d.html)
+
+    SPARSEKIT - Sparse Matrix Utility Package
+      amux, dperm, dvperm, rperm, and cperm
+      (https://people.sc.fsu.edu/~jburkardt/f77_src/sparsekit/sparsekit.html)
+
+The following BSD-3 License libraries are used in this USGS product:
+
+    Modern Fortran DAG Library
+      Copyright (c) 2018, Jacob Williams
+      All rights reserved.
+      (https://github.com/jacobwilliams/daglib)
+
+MODFLOW 6 compiler options: /O2 /heap-arrays:0 /fpe:0 /traceback /nologo /fpp
+/c /module:.\mod_temp\ /object:.\obj_temp\
+
+System command used to initiate simulation:
+C:\Users\mouss\modeling\training\univ_bobo_2026\bin\mf6.exe
+
+MODFLOW was compiled using uniform precision.
+
+Real Variables
+  KIND: 8
+  TINY (smallest non-zero value):    2.225074-308
+  HUGE (largest value):    1.797693+308
+  PRECISION: 15
+  BIT SIZE: 64
+
+Integer Variables
+  KIND: 4
+  HUGE (largest value): 2147483647
+  BIT SIZE: 32
+
+Long Integer Variables
+  KIND: 8
+  HUGE (largest value): 9223372036854775807
+  BIT SIZE: 64
+
+Logical Variables
+  KIND: 4
+  BIT SIZE: 32
+ 
+
+ OPENED drought_mild.dis
+ FILE TYPE:DIS6                   UNIT 1005   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.ic
+ FILE TYPE:IC6                    UNIT 1006   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.npf
+ FILE TYPE:NPF6                   UNIT 1007   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.sto
+ FILE TYPE:STO6                   UNIT 1008   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.chd
+ FILE TYPE:CHD6                   UNIT 1009   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.rcha
+ FILE TYPE:RCH6                   UNIT 1010   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.evta
+ FILE TYPE:EVT6                   UNIT 1011   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.riv
+ FILE TYPE:RIV6                   UNIT 1012   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.wel
+ FILE TYPE:WEL6                   UNIT 1013   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_mild.oc
+ FILE TYPE:OC6                    UNIT 1014   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+ NAMEFILE OPTIONS:
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+    NEWTON-RAPHSON method enabled for the model.
+    NEWTON-RAPHSON UNDER-RELAXATION based on the bottom elevation of the model will be applied to the model.
+
+ DIS -- STRUCTURED GRID DISCRETIZATION PACKAGE, VERSION 2 : 3/27/2014 - INPUT READ FROM UNIT 1005
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:16.
+ PROCESSING DISCRETIZATION OPTIONS
+ END OF DISCRETIZATION OPTIONS
+ MODEL LENGTH UNIT IS UNDEFINED
+ PROCESSING DISCRETIZATION DIMENSIONS
+    NLAY =       3
+    NROW =     150
+    NCOL =     100
+ END OF DISCRETIZATION DIMENSIONS
+ PROCESSING GRIDDATA
+
+                     DELR =   100.0000    
+
+                     DELC =   100.0000    
+ END PROCESSING GRIDDATA
+
+ NPF -- NODE PROPERTY FLOW PACKAGE, VERSION 1, 3/30/2015 INPUT READ FROM UNIT 1007
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:16.
+ PROCESSING NPF OPTIONS
+    SPECIFIC DISCHARGE WILL BE CALCULATED AT CELL CENTERS AND WRITTEN TO DATA-SPDIS IN BUDGET FILE WHEN REQUESTED.
+ END OF NPF OPTIONS
+
+ WEL   -- WEL PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1013
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:18.
+
+ PROCESSING WEL OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+    AUTOMATIC FLOW REDUCTION OF WELLS IMPLEMENTED.
+    AUTOMATIC FLOW REDUCTION FRACTION (  0.1000000    ).
+ END OF WEL OPTIONS
+
+ PROCESSING WEL DIMENSIONS
+    MAXBOUND =      10
+ END OF WEL DIMENSIONS
+
+ RIV   -- RIV PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1012
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:18.
+
+ PROCESSING RIV OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF RIV OPTIONS
+
+ PROCESSING RIV DIMENSIONS
+    MAXBOUND =     150
+ END OF RIV DIMENSIONS
+
+ RCH   -- RCH PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1010
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:17.
+
+ PROCESSING RCH OPTIONS
+    RECHARGE INPUT WILL BE READ AS ARRAY(S).
+ END OF RCHA OPTIONS
+
+ EVT   -- EVT PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1011
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:18.
+
+ PROCESSING EVT OPTIONS
+    EVAPOTRANSPIRATION INPUT WILL BE READ AS ARRAYS.
+ END OF EVTA OPTIONS
+
+ CHD   -- CHD PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1009
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:17.
+
+ PROCESSING CHD OPTIONS
+ END OF CHD OPTIONS
+
+ PROCESSING CHD DIMENSIONS
+    MAXBOUND =     600
+ END OF CHD DIMENSIONS
+
+ IC -- INITIAL CONDITIONS PACKAGE, VERSION 8, 3/28/2015 INPUT READ FROM UNIT 1006
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:16.
+ PROCESSING GRIDDATA
+ END PROCESSING GRIDDATA
+ PROCESSING GRIDDATA
+ K22 not provided.  Assuming K22 = K.
+ END PROCESSING GRIDDATA
+
+ STO -- STORAGE PACKAGE, VERSION 1, 5/19/2014 INPUT READ FROM UNIT 1008
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:17.
+ PROCESSING STORAGE OPTIONS
+ END OF STORAGE OPTIONS
+ PROCESSING GRIDDATA
+
+         SPECIFIC STORAGE =  0.1000000E-04 FOR LAYER 1
+
+         SPECIFIC STORAGE =  0.5000000E-04 FOR LAYER 2
+
+         SPECIFIC STORAGE =  0.3000000E-04 FOR LAYER 3
+
+           SPECIFIC YIELD =  0.1500000     FOR LAYER 1
+
+           SPECIFIC YIELD =  0.8000000E-01 FOR LAYER 2
+
+           SPECIFIC YIELD =  0.5000000E-01 FOR LAYER 3
+ END PROCESSING GRIDDATA
+    BINARY GRID INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1016
+      FILE NAME: c:\Users\mouss\modeling\training\univ_bobo_2026\model\drought_mild\drought_mild.dis.grb
+
+ OPENED c:\Users\mouss\modeling\training\univ_bobo_2026\model\drought_mild\drought_mild.dis.grb
+ FILE TYPE:DATA(BINARY)   UNIT 1016   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+      THE LAST TIME STEP WILL BE PRINTED
+      THE LAST TIME STEP WILL BE PRINTED
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:37:18.
+
+ PROCESSING OC OPTIONS
+
+    BUDGET INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1017
+      FILE NAME: drought_mild.cbc
+
+ OPENED drought_mild.cbc
+ FILE TYPE:DATA(BINARY)   UNIT 1017   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+    HEAD INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1018
+      FILE NAME: drought_mild.hds
+
+ OPENED drought_mild.hds
+ FILE TYPE:DATA(BINARY)   UNIT 1018   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+ END OF OC OPTIONS
+
+start timestep kper="1" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 1
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 1
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 1 IS TRANSIENT
+
+
+  EVAPOTRANSPIRATION RATE =  0.2927420E-02
+
+         EXTINCTION DEPTH =   4.000000    
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    1
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   1
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       39736.4320                STO-SS =         752.9411     STORAGE                          
+              STO-SY =     1023514.6738                STO-SY =       32527.7349     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =        7477.1862                   RIV =         258.0934     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =      277283.0493                   CHD =        9173.1112     CHD_0                            
+
+            TOTAL IN =     1348011.3414              TOTAL IN =       42711.8806
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        1687.0331                STO-SS =          19.1927     STORAGE                          
+              STO-SY =       44638.5662                STO-SY =        1263.8842     STORAGE                          
+                 WEL =      522866.0105                   WEL =       17011.6162     WEL_0                            
+                 RIV =      341660.2049                   RIV =       10861.2949     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =      425790.4559                  EVTA =       13221.1122     EVTA_0                           
+                 CHD =       11369.0729                   CHD =         334.7805     CHD_0                            
+
+           TOTAL OUT =     1348011.3436             TOTAL OUT =       42711.8806
+
+            IN - OUT =      -2.1968E-03              IN - OUT =      -4.8661E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+
+
+end timestep
+
+
+start timestep kper="2" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 2
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 2
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 2 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.3457140E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    2
+
+end timestep
+
+
+start timestep kper="2" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      2
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    2
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   2
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       57713.4827                STO-SS =         656.0243     STORAGE                          
+              STO-SY =     1944863.7659                STO-SY =       31958.0222     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       15347.6064                   RIV =         296.2787     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =      543994.4850                   CHD =        9710.3968     CHD_0                            
+
+            TOTAL IN =     2561919.3400              TOTAL IN =       42620.7220
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        2745.2155                STO-SS =          15.1438     STORAGE                          
+              STO-SY =       75423.8409                STO-SY =        1001.6185     STORAGE                          
+                 WEL =      984949.1173                   WEL =       16560.1413     WEL_0                            
+                 RIV =      641309.5880                   RIV =       10604.0287     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =      838050.4270                  EVTA =       14175.2645     EVTA_0                           
+                 CHD =       19441.1577                   CHD =         264.5253     CHD_0                            
+
+           TOTAL OUT =     2561919.3464             TOTAL OUT =       42620.7220
+
+            IN - OUT =      -6.3661E-03              IN - OUT =      -6.0397E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    2
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.04163E+05  11736.      195.60      8.1500     2.23136E-02
+ STRESS PERIOD TIME 2.41920E+06  40320.      672.00      28.000     7.66598E-02
+         TOTAL TIME 5.09760E+06  84960.      1416.0      59.000     0.16153    
+
+
+end timestep
+
+
+start timestep kper="3" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 3
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 3
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 3 IS TRANSIENT
+
+
+ REUSING RIVS FROM LAST STRESS PERIOD
+
+  EVAPOTRANSPIRATION RATE =  0.4000810E-02
+
+ REUSING CHDS FROM LAST STRESS PERIOD
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="4" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      4, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    4, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="5" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      5, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    5, STRESS PERIOD    3
+
+end timestep
+
+
+start timestep kper="3" kstp="6" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MILD     PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MILD     PACKAGE NPF              ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MILD     PACKAGE DROUGHT_MILD    CONNECTED TO MODEL DROUGHT_MILD     PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      6, STRESS PERIOD      3
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    6, STRESS PERIOD    3
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   3
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       86980.5186                STO-SS =         748.6952     STORAGE                          
+              STO-SY =     2998581.8629                STO-SY =       33160.8628     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =       25400.5968                   RIV =         343.9577     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =      856415.4283                   CHD =       10268.0189     CHD_0                            
+
+            TOTAL IN =     3967378.4066              TOTAL IN =       44521.5346
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        3152.4811                STO-SS =          12.0381     STORAGE                          
+              STO-SY =      102456.7618                STO-SY =         798.8050     STORAGE                          
+                 WEL =     1557228.1244                   WEL =       18492.5669     WEL_0                            
+                 RIV =      965699.5624                   RIV =       10376.9267     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =     1312521.9010                  EVTA =       14640.1631     EVTA_0                           
+                 CHD =       26319.5790                   CHD =         201.0348     CHD_0                            
+
+           TOTAL OUT =     3967378.4096             TOTAL OUT =       44521.5346
+
+            IN - OUT =      -3.0151E-03              IN - OUT =      -4.8603E-09
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    3
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.79609E+05  12993.      216.56      9.0232     2.47043E-02
+ STRESS PERIOD TIME 2.67840E+06  44640.      744.00      31.000     8.48734E-02
+         TOTAL TIME 7.77600E+06 1.29600E+05  2160.0      90.000     0.24641    
+
+
+         ****FAILED TO MEET SOLVER CONVERGENCE CRITERIA IN TIME STEP 6 OF STRESS PERIOD 3****
+
+end timestep
+

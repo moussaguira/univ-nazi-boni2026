@@ -1,0 +1,402 @@
+                                   MODFLOW 6
+                U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
+                          GROUNDWATER FLOW MODEL (GWF)
+                   VERSION 6.3.0 release candidate 02/06/2022
+                               ***DEVELOP MODE***
+
+   MODFLOW 6 compiled Feb 06 2022 02:35:51 with Intel(R) Fortran Intel(R) 64
+   Compiler Classic for applications running on Intel(R) 64, Version 2021.5.0
+                             Build 20211109_000000
+
+This software is preliminary or provisional and is subject to 
+revision. It is being provided to meet the need for timely best 
+science. The software has not received final approval by the U.S. 
+Geological Survey (USGS). No warranty, expressed or implied, is made 
+by the USGS or the U.S. Government as to the functionality of the 
+software and related material nor shall the fact of release 
+constitute any such warranty. The software is provided on the 
+condition that neither the USGS nor the U.S. Government shall be held 
+liable for any damages resulting from the authorized or unauthorized 
+use of the software.
+
+
+As a work of the United States Government, this USGS product is 
+in the public domain within the United States. You can copy, 
+modify, distribute, and perform the work, even for commercial 
+purposes, all without asking permission. Additionally, USGS 
+waives copyright and related rights in the work worldwide 
+through CC0 1.0 Universal Public Domain Dedication 
+(https://creativecommons.org/publicdomain/zero/1.0/).
+
+The following GNU Lesser General Public License (LGPL) libraries
+are used in this USGS product:
+
+    SPARSKIT version 2.0
+      ilut, luson, and qsplit 
+      (https://www-users.cse.umn.edu/~saad/software/SPARSKIT/)
+
+    RCM - Reverse Cuthill McKee Ordering
+      (https://people.math.sc.edu/Burkardt/f_src/rcm/rcm.html)
+
+    BLAS - Basic Linear Algebra Subprograms Level 1
+      (https://people.math.sc.edu/Burkardt/f_src/blas1_d/blas1_d.html)
+
+    SPARSEKIT - Sparse Matrix Utility Package
+      amux, dperm, dvperm, rperm, and cperm
+      (https://people.sc.fsu.edu/~jburkardt/f77_src/sparsekit/sparsekit.html)
+
+The following BSD-3 License libraries are used in this USGS product:
+
+    Modern Fortran DAG Library
+      Copyright (c) 2018, Jacob Williams
+      All rights reserved.
+      (https://github.com/jacobwilliams/daglib)
+
+MODFLOW 6 compiler options: /O2 /heap-arrays:0 /fpe:0 /traceback /nologo /fpp
+/c /module:.\mod_temp\ /object:.\obj_temp\
+
+System command used to initiate simulation:
+..\..\bin\mf6.exe
+
+MODFLOW was compiled using uniform precision.
+
+Real Variables
+  KIND: 8
+  TINY (smallest non-zero value):    2.225074-308
+  HUGE (largest value):    1.797693+308
+  PRECISION: 15
+  BIT SIZE: 64
+
+Integer Variables
+  KIND: 4
+  HUGE (largest value): 2147483647
+  BIT SIZE: 32
+
+Long Integer Variables
+  KIND: 8
+  HUGE (largest value): 9223372036854775807
+  BIT SIZE: 64
+
+Logical Variables
+  KIND: 4
+  BIT SIZE: 32
+ 
+
+ OPENED drought_moderate.dis
+ FILE TYPE:DIS6                   UNIT 1005   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.ic
+ FILE TYPE:IC6                    UNIT 1006   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.npf
+ FILE TYPE:NPF6                   UNIT 1007   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.sto
+ FILE TYPE:STO6                   UNIT 1008   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.chd
+ FILE TYPE:CHD6                   UNIT 1009   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.rcha
+ FILE TYPE:RCH6                   UNIT 1010   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.evta
+ FILE TYPE:EVT6                   UNIT 1011   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.riv
+ FILE TYPE:RIV6                   UNIT 1012   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.wel
+ FILE TYPE:WEL6                   UNIT 1013   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED drought_moderate.oc
+ FILE TYPE:OC6                    UNIT 1014   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+ NAMEFILE OPTIONS:
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+    NEWTON-RAPHSON method enabled for the model.
+    NEWTON-RAPHSON UNDER-RELAXATION based on the bottom elevation of the model will be applied to the model.
+
+ DIS -- STRUCTURED GRID DISCRETIZATION PACKAGE, VERSION 2 : 3/27/2014 - INPUT READ FROM UNIT 1005
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:16.
+ PROCESSING DISCRETIZATION OPTIONS
+ END OF DISCRETIZATION OPTIONS
+ MODEL LENGTH UNIT IS UNDEFINED
+ PROCESSING DISCRETIZATION DIMENSIONS
+    NLAY =       3
+    NROW =     150
+    NCOL =     100
+ END OF DISCRETIZATION DIMENSIONS
+ PROCESSING GRIDDATA
+
+                     DELR =   100.0000    
+
+                     DELC =   100.0000    
+ END PROCESSING GRIDDATA
+
+ NPF -- NODE PROPERTY FLOW PACKAGE, VERSION 1, 3/30/2015 INPUT READ FROM UNIT 1007
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:17.
+ PROCESSING NPF OPTIONS
+    SPECIFIC DISCHARGE WILL BE CALCULATED AT CELL CENTERS AND WRITTEN TO DATA-SPDIS IN BUDGET FILE WHEN REQUESTED.
+ END OF NPF OPTIONS
+
+ WEL   -- WEL PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1013
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:18.
+
+ PROCESSING WEL OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+    AUTOMATIC FLOW REDUCTION OF WELLS IMPLEMENTED.
+    AUTOMATIC FLOW REDUCTION FRACTION (  0.1000000    ).
+ END OF WEL OPTIONS
+
+ PROCESSING WEL DIMENSIONS
+    MAXBOUND =      10
+ END OF WEL DIMENSIONS
+
+ RIV   -- RIV PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1012
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:18.
+
+ PROCESSING RIV OPTIONS
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF RIV OPTIONS
+
+ PROCESSING RIV DIMENSIONS
+    MAXBOUND =     150
+ END OF RIV DIMENSIONS
+
+ RCH   -- RCH PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1010
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:17.
+
+ PROCESSING RCH OPTIONS
+    RECHARGE INPUT WILL BE READ AS ARRAY(S).
+ END OF RCHA OPTIONS
+
+ EVT   -- EVT PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1011
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:17.
+
+ PROCESSING EVT OPTIONS
+    EVAPOTRANSPIRATION INPUT WILL BE READ AS ARRAYS.
+ END OF EVTA OPTIONS
+
+ CHD   -- CHD PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1009
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:17.
+
+ PROCESSING CHD OPTIONS
+ END OF CHD OPTIONS
+
+ PROCESSING CHD DIMENSIONS
+    MAXBOUND =     600
+ END OF CHD DIMENSIONS
+
+ IC -- INITIAL CONDITIONS PACKAGE, VERSION 8, 3/28/2015 INPUT READ FROM UNIT 1006
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:17.
+ PROCESSING GRIDDATA
+ END PROCESSING GRIDDATA
+ PROCESSING GRIDDATA
+ K22 not provided.  Assuming K22 = K.
+ END PROCESSING GRIDDATA
+
+ STO -- STORAGE PACKAGE, VERSION 1, 5/19/2014 INPUT READ FROM UNIT 1008
+
+
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:17.
+ PROCESSING STORAGE OPTIONS
+ END OF STORAGE OPTIONS
+ PROCESSING GRIDDATA
+
+         SPECIFIC STORAGE =  0.1000000E-04 FOR LAYER 1
+
+         SPECIFIC STORAGE =  0.5000000E-04 FOR LAYER 2
+
+         SPECIFIC STORAGE =  0.3000000E-04 FOR LAYER 3
+
+           SPECIFIC YIELD =  0.1500000     FOR LAYER 1
+
+           SPECIFIC YIELD =  0.8000000E-01 FOR LAYER 2
+
+           SPECIFIC YIELD =  0.5000000E-01 FOR LAYER 3
+ END PROCESSING GRIDDATA
+    BINARY GRID INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1016
+      FILE NAME: C:\Users\mouss\modeling\training\univ_bobo_2026\model\drought_moderate\drought_moderate.dis.grb
+
+ OPENED C:\Users\mouss\modeling\training\univ_bobo_2026\model\drought_moderate\drought_moderate.dis.grb
+ FILE TYPE:DATA(BINARY)   UNIT 1016   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+      THE LAST TIME STEP WILL BE PRINTED
+      THE LAST TIME STEP WILL BE PRINTED
+ # File generated by Flopy version 3.4.3 on 08/18/2026 at 07:38:18.
+
+ PROCESSING OC OPTIONS
+
+    BUDGET INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1017
+      FILE NAME: drought_moderate.cbc
+
+ OPENED drought_moderate.cbc
+ FILE TYPE:DATA(BINARY)   UNIT 1017   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+    HEAD INFORMATION WILL BE WRITTEN TO:
+      UNIT NUMBER: 1018
+      FILE NAME: drought_moderate.hds
+
+ OPENED drought_moderate.hds
+ FILE TYPE:DATA(BINARY)   UNIT 1018   STATUS:REPLACE             
+ FORMAT:UNFORMATTED            ACCESS:STREAM              
+ ACTION:READWRITE           
+
+ END OF OC OPTIONS
+
+start timestep kper="1" kstp="1" mode="normal"
+
+
+ BEGIN READING OUTPUT CONTROL FOR STRESS PERIOD 1
+      ALL TIME STEPS WILL BE SAVED
+      ALL TIME STEPS WILL BE SAVED
+
+ END READING OUTPUT CONTROL FOR STRESS PERIOD 1
+
+
+ PROCESSING STORAGE PERIOD DATA
+ END PROCESSING STORAGE PERIOD DATA
+
+
+ STRESS PERIOD 1 IS TRANSIENT
+
+
+  EVAPOTRANSPIRATION RATE =  0.3326610E-02
+
+         EXTINCTION DEPTH =   4.000000    
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MODERATE PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MODERATE PACKAGE NPF              ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      1, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    1, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="2" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MODERATE PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MODERATE PACKAGE NPF              ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      2, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    2, STRESS PERIOD    1
+
+end timestep
+
+
+start timestep kper="1" kstp="3" mode="normal"
+
+ UBDSV1 SAVING           STO-SS ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV1 SAVING           STO-SY ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV1 SAVING     FLOW-JA-FACE ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING       DATA-SPDIS IN MODEL DROUGHT_MODERATE PACKAGE NPF             CONNECTED TO MODEL DROUGHT_MODERATE PACKAGE NPF              ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              WEL IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE WEL_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              RIV IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE RIV_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING             RCHA IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE RCHA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING            EVTA  IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE EVTA_0           ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+ UBDSV06 SAVING              CHD IN MODEL DROUGHT_MODERATE PACKAGE DROUGHT_MODERATECONNECTED TO MODEL DROUGHT_MODERATE PACKAGE CHD_0            ON UNIT   1017 AT TIME STEP      3, STRESS PERIOD      1
+
+ HEAD WILL BE SAVED ON UNIT 1018 AT END OF TIME STEP    3, STRESS PERIOD    1
+
+
+  VOLUME BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    3, STRESS PERIOD   1
+  ---------------------------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUME      L**3       RATES FOR THIS TIME STEP      L**3/T          PACKAGE NAME    
+     ------------------                 ------------------------                     ----------------
+
+           IN:                                      IN:
+           ---                                      ---
+              STO-SS =       29429.4687                STO-SS =        1993.5409     STORAGE                          
+              STO-SY =      358944.7874                STO-SY =       37616.0208     STORAGE                          
+                 WEL =           0.0000                   WEL =           0.0000     WEL_0                            
+                 RIV =        2190.1633                   RIV =         231.0269     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =           0.0000                  EVTA =           0.0000     EVTA_0                           
+                 CHD =       84842.5975                   CHD =        8864.4031     CHD_0                            
+
+            TOTAL IN =      475407.0168              TOTAL IN =       48704.9916
+
+          OUT:                                     OUT:
+          ----                                     ----
+              STO-SS =        1225.4497                STO-SS =          40.5595     STORAGE                          
+              STO-SY =       15696.1170                STO-SY =        1572.1163     STORAGE                          
+                 WEL =      189622.4670                   WEL =       19654.4586     WEL_0                            
+                 RIV =      108595.5014                   RIV =       11126.1846     RIV_0                            
+                RCHA =           0.0000                  RCHA =           0.0000     RCHA_0                           
+                EVTA =      156446.8203                  EVTA =       15934.7316     EVTA_0                           
+                 CHD =        3820.6632                   CHD =         376.9410     CHD_0                            
+
+           TOTAL OUT =      475407.0186             TOTAL OUT =       48704.9916
+
+            IN - OUT =      -1.7350E-03              IN - OUT =      -4.7192E-08
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    3 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 3.54851E+05  5914.2      98.570      4.1071     1.12446E-02
+ STRESS PERIOD TIME 8.37785E+05  13963.      232.72      9.6966     2.65478E-02
+         TOTAL TIME 8.37785E+05  13963.      232.72      9.6966     2.65478E-02
+
+
+         ****FAILED TO MEET SOLVER CONVERGENCE CRITERIA IN TIME STEP 3 OF STRESS PERIOD 1****
+
+end timestep
+

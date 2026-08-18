@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# MODFLOW binary output
+*.hds
+*.cbc
+*.cbb
+*.bud
+*.ucn
+*.grb
